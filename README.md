@@ -1,7 +1,7 @@
 # 🧑‍💻 Codespace - Development Environment
 
-[![GitHub stars](https://img.shields.io/github/stars/Ealenn/codespaces?style=for-the-badge)](https://github.com/Ealenn/codespaces/stargazers)
-[![Docker Pulls](https://img.shields.io/docker/pulls/ealen/codespaces?style=for-the-badge)](https://hub.docker.com/r/ealen/codespaces)
+[![GitHub stars](https://img.shields.io/github/stars/Ealenn/codespaces?style=for-the-badge)](https://github.com/Ealenn/codespaces/stargazers) 
+[![Docker Pulls](https://img.shields.io/docker/pulls/ealen/codespaces?style=for-the-badge)](https://hub.docker.com/r/ealen/codespaces) 
 
 > A modern developer-friendly environment optimized for containers, VS Code Remote Containers, and GitHub Codespaces.
 
