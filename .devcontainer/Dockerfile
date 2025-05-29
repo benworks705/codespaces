@@ -61,22 +61,22 @@ RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 # ------------------------------
 # Go
 # ------------------------------
-ENV GOROOT=/usr/local/go
-RUN ARCH=$(uname -m) && \
-  case "$ARCH" in \
-      x86_64) GO_ARCH="amd64" ;; \
-      aarch64) GO_ARCH="arm64" ;; \
-      armv7l) GO_ARCH="armv6l" ;; \
-      ppc64le) GO_ARCH="ppc64le" ;; \
-      s390x) GO_ARCH="s390x" ;; \
-      *) echo "Unsupported architecture: $ARCH" && exit 1 ;; \
-  esac && \
-  GO_VERSION=$(curl -s "https://go.dev/dl/?mode=json" | jq -r '.[0].version') && \
-  GO_URL="https://go.dev/dl/${GO_VERSION}.linux-${GO_ARCH}.tar.gz" && \
-  echo "Downloading Go ${GO_VERSION} for ${GO_ARCH} from ${GO_URL}" && \
-  wget -q "${GO_URL}" -O go.tar.gz && \
-  tar -C /usr/local -xzf go.tar.gz && \
-  rm go.tar.gz
+# ENV GOROOT=/usr/local/go
+# RUN ARCH=$(uname -m) && \
+#   case "$ARCH" in \
+#       x86_64) GO_ARCH="amd64" ;; \
+#       aarch64) GO_ARCH="arm64" ;; \
+#       armv7l) GO_ARCH="armv6l" ;; \
+#       ppc64le) GO_ARCH="ppc64le" ;; \
+#       s390x) GO_ARCH="s390x" ;; \
+#       *) echo "Unsupported architecture: $ARCH" && exit 1 ;; \
+#   esac && \
+#   GO_VERSION=$(curl -s "https://go.dev/dl/?mode=json" | jq -r '.[0].version') && \
+#   GO_URL="https://go.dev/dl/${GO_VERSION}.linux-${GO_ARCH}.tar.gz" && \
+#   echo "Downloading Go ${GO_VERSION} for ${GO_ARCH} from ${GO_URL}" && \
+#   wget -q "${GO_URL}" -O go.tar.gz && \
+#   tar -C /usr/local -xzf go.tar.gz && \
+#   rm go.tar.gz
 
 # ------------------------------
 # Python
@@ -97,20 +97,20 @@ RUN usermod -aG docker ${USER}
 # ------------------------------
 # NodeJS - NVM
 # ------------------------------
-ENV NVM_DIR=/usr/local/nvm
-RUN mkdir -p $NVM_DIR
-RUN curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash 
-RUN source $NVM_DIR/nvm.sh \
-    && nvm install --lts \
-    && nvm alias default lts/* \
-    && nvm use default
+# ENV NVM_DIR=/usr/local/nvm
+# RUN mkdir -p $NVM_DIR
+# RUN curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash 
+# RUN source $NVM_DIR/nvm.sh \
+#     && nvm install --lts \
+#     && nvm alias default lts/* \
+#     && nvm use default
 
 # ------------------------------
 # NPM Global Packages
 # ------------------------------
-RUN [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" \
-  && npm install --global zx \
-  && npm cache clean --force
+# RUN [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" \
+#   && npm install --global zx \
+#   && npm cache clean --force
 
 # ------------------------------
 # LSD
